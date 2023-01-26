@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+
+<!--  특정 패키지 하위의 모든 클래스에서 어노테이션(@) 을 읽을수 있도록 설정  -->
+<!-- polimorphism05 패키지 하위에 구성된 어노테이션을 읽어 들이겠다는 설정  -->
+<context:component-scan base-package="polimorphism05"></context:component-scan>
+
+
+
+
+
+ <!-- beans : 객체 -->
+ 
+ <!--  SamsungTV 클래스의 객체를 생성하는 bean 
+ 		SamsungTV tv = new SamsungTV(); 
+  -->
+  
+ 
+</beans>

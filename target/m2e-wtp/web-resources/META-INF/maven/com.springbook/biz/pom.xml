@@ -20,8 +20,11 @@
 		<dependency>
 		    <groupId>com.h2database</groupId>
 		    <artifactId>h2</artifactId>
-		    <version>1.4.199</version>
-		    <scope>test</scope>
+		    <version>2.1.214</version>
+		   <!-- <version>1.4.199</version>
+		   <scope>test</scope>
+		    --> 
+		    
 		</dependency>
 	
 		<!--  Oracle 21C XE 라이브러리 추가 -->
@@ -59,6 +62,26 @@
 		
 		
 		
+		
+		
+		
+		
+		<!-- JSP 엔진 : 스프링의 기본 엔진에는 없음 -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+		<dependency>
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		    <version>10.1.5</version>
+		</dependency>
+
+		
+		<!-- JSTL : 스프링의 기본 엔진에는 없음 -->
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
 		
 		
 		

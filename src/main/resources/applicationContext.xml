@@ -10,7 +10,7 @@
 <!--  특정 패키지 하위의 모든 클래스에서 어노테이션(@) 을 읽을수 있도록 설정  -->
 <!-- polimorphism05 패키지 하위에 구성된 어노테이션을 읽어 들이겠다는 설정  -->
 <context:component-scan base-package="polimorphism05"></context:component-scan>
-
+<context:component-scan base-package="com.spring"></context:component-scan>
 
 
 
@@ -20,6 +20,8 @@
  <!--  SamsungTV 클래스의 객체를 생성하는 bean 
  		SamsungTV tv = new SamsungTV(); 
   -->
+  
+  <bean id ="tv" class ="polimorphism04.SamsungTV"></bean>
   
  
 </beans>

@@ -16,6 +16,7 @@ public class TVUser {
 				//a. @ (어노테이션) 을 사용할 수 있도록 설정이 필요함. 
 					//applicationContext.xml : Bean 구성 파일 , 어노테이션을 사용할 수 있도록 설정 필요. (context 등록)
 						//<context:component-scan base-package="polimorphism05"></context:component-scan>
+						//<context:component-scan base-package="com.spring"></context:component-scan>
 				//b. 클해스위에 @Component 어노테이션을 붙여서 객체를 생성 <== 클래스 외부에서 할당 
 						// 다양한 종류의 클래스가 존재하기 때문에 클래스의 종류에 따라서 여러이름으로 어노테이션을 붙임. 
 					//@Component 	: 일반적인 클래스를 Bean (객체화) 생성 

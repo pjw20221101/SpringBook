@@ -1,0 +1,42 @@
+H2 DataBase 
+
+Driver : org.h2.Driver
+JDBC : jdbc:h2:tcp://localhost/~/test
+Account(계정명) : sa
+Password(암호) : 
+
+
+
+MVC M2 로 개발 진행 
+
+0. DB의 테이블 생성 ( board, users ) : Oracle, H2 Database
+1. DB 연결, 사용한 객체를 제거하는 클래스 
+	JDBCUtil.java 
+	    -- DB Connection 객체 생성
+	    -- 사용한 객체를 제거하는 메소드 
+		close( pstmt, conn) 		// Insert, Update, Delete
+		close(rs, pstmt, conn)	// Select 
+2. DTO (VO) : Client 에서 받은 변수를 DTO(VO) 에 담아서 DAO 전달 , 
+	     DAO 에서 받은 변수를 DTO(VO) 에 담아서 Client 에게 전달 
+              -- 데이터를 받아서 전달하는 전달자 역활 
+	-- BoardDTO.java 
+
+3. DAO : DataBase 를 엑세스 해서 Select, Insert, Update, Delete 하는 쿼리를 담은 JAVA 클래스 
+     @Repository("boardDAO") 
+	-- BoardDAO.java
+	
+4. BoardService  인터페이스 (비즈니스 로직을 처리하는 인터페이스 생성 )  <== 수정, 유지 보수를 쉽게 하기 위해서 
+	//비즈니스 로직을 처리
+	 -- BoardService.java	<== 인터페이스 , DAO의 메소드를 가지고 생성 <
+
+5. BoardServiceImpl : BoardService 를 구현한 구현 클래스 
+    @Service("boardService")
+	-- BoardServiceImpl.java
+
+
+
+
+
+
+
+

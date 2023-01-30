@@ -11,17 +11,17 @@ public class JDBCUtil {
 		//static : 객체 생성 없이 클래스이름으로 바로 호출 
 	public static Connection getConnection() {
 		
-		//String driver = "oracle.jdbc.driver.OracleDriver";
-		String driver = "org.h2.Driver";
-		//String url = "jdbc:oracle:thin:@localhost:1521:XE"; 
-		String url = "jdbc:h2:tcp://localhost/~/test"; 
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		//String driver = "org.h2.Driver";
+		String url = "jdbc:oracle:thin:@localhost:1521:XE"; 
+		//String url = "jdbc:h2:tcp://localhost/~/test"; 
 		
 		Connection conn = null; 
 		
 		try {
 			Class.forName(driver); 
-			//conn = DriverManager.getConnection(url,"C##HR","1234");
-			conn = DriverManager.getConnection(url,"sa","");
+			conn = DriverManager.getConnection(url,"C##HR","1234");
+			//conn = DriverManager.getConnection(url,"sa","");
 			
 			System.out.println(" DB에 잘 연결 되었습니다. ");   //확인후 주석 처리 
 			return conn; 
@@ -41,6 +41,7 @@ public class JDBCUtil {
 			try {
 				if (!pstmt.isClosed()) {	//pstmt 객체가 제거되지 않는 상태라면
 					pstmt.close();
+					System.out.println("pstmt 객제 close()");
 				}
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -53,6 +54,7 @@ public class JDBCUtil {
 			try {
 				if (!conn.isClosed()) {
 					conn.close();
+					System.out.println("conn 객제 close()");
 				}
 			}catch (Exception e) {
 				e.printStackTrace();

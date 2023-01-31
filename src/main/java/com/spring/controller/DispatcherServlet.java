@@ -55,9 +55,22 @@ public class DispatcherServlet extends HttpServlet {
 			// 클라이언트 요청에 대해서 : /loin.do 요청 
 			//1. Model : Service (비즈니스 로직을 처리)  , (DTO, DAO) 
 			//2. View 페이지로 전달 : *.jsp 파일
-			
-			
+						
 			System.out.println("사용자 정보 처리");
+			System.out.println("/login.do 요청을 보냈습니다. ");
+			
+			// 1. 클라이언트에서 보내는 변수 값을 받아서 변수에 저장 
+			String id = request.getParameter("id"); 
+			String password = request.getParameter("password"); 
+			
+			System.out.println("폼에서 넘긴 변수 id 갑 출력 : " + id);
+			System.out.println("폼에서 넘긴 변수 id 갑 출력 : " + password);
+			
+			
+			
+			
+			
+			
 			
 		}else if (path.equals("/getBoardList.do")) {
 			

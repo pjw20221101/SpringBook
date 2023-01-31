@@ -33,7 +33,14 @@ MVC M2 로 개발 진행
     @Service("boardService")
 	-- BoardServiceImpl.java
 
+6. 서비스의 메소드가 잘 작동 되는지 test 
+	service 인터페이스의 메소드 호출 (DTO) 
+	
+7. Controller 코딩 
+	//Client 의 요청을 받아서 service 메소드 호출 (비즈니스 로직 처리)
+	// view 페이지를 돌려줌 
 
+8. View 페이지를 작성 완료. 
 
 
 

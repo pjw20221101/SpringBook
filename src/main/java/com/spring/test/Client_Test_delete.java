@@ -1,4 +1,4 @@
-package com.spring.common;
+package com.spring.test;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -22,7 +22,7 @@ public class Client_Test_delete {
 		//deleteBoard() 메소드 테스트 
 		
 		//DTO에 seq 컬럼의 값을 할당후 deleteBoard(dto) 메소드 호출
-		boardDTO.setSeq(2);
+		boardDTO.setSeq(4);
 		
 		//deleteBoard(boardDTO) 
 		boardService.deleteBoard(boardDTO);

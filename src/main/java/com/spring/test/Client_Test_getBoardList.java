@@ -1,4 +1,6 @@
-package com.spring.common;
+package com.spring.test;
+
+import java.util.List;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -6,10 +8,10 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import com.spring.board.BoardDTO;
 import com.spring.board.BoardService;
 
-public class Client_Test_getBoard {
+public class Client_Test_getBoardList {
 
 	public static void main(String[] args) {
-		
+
 		AbstractApplicationContext factory = 
 				new GenericXmlApplicationContext("applicationContext.xml");
 
@@ -18,16 +20,16 @@ public class Client_Test_getBoard {
 		
 		//DTO 객체를 생성후에 Setter 주입으로 DTO 각 필드의 값을 입력 
 		BoardDTO boardDTO = new BoardDTO(); 
+
 		
-		//글 상세 보기 : 1개의 레코드만 출력 , 
-		boardDTO.setSeq(6); 
+		//List<BoardDTO> 리턴을 받아옮 
 		
-		//getBorad(boardDTO)  ==> 리턴으로 DTO 
+		List<BoardDTO> boardList = boardService.getBoardList(boardDTO); 
 		
-		BoardDTO dbDTO = boardService.getBoard(boardDTO); 
+		for (BoardDTO board : boardList) {
+			System.out.println(board);
+		}
 		
-		//toString () 재정의 되어 있음. DB에서 select 한 레코드 값을 출력 
-		System.out.println(dbDTO);
 		
 		
 	}

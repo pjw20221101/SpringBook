@@ -52,6 +52,11 @@ public class DispatcherServlet extends HttpServlet {
 		
 		if (path.equals("/login.do")) {
 			
+			// 클라이언트 요청에 대해서 : /loin.do 요청 
+			//1. Model : Service (비즈니스 로직을 처리)  , (DTO, DAO) 
+			//2. View 페이지로 전달 : *.jsp 파일
+			
+			
 			System.out.println("사용자 정보 처리");
 			
 		}else if (path.equals("/getBoardList.do")) {

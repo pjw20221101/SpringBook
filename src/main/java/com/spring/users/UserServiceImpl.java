@@ -15,9 +15,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO getUser(UserDTO dto) {
 		
-		UserDTO user = userDAO.getUser(dto); 
-		
-		return user;
+		System.out.println(dto.getId());
+		System.out.println(dto.getPassword());
+			
+		return userDAO.getUser(dto);
 	}
 
 }

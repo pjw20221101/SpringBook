@@ -7,6 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.spring.board.BoardDTO;
+import com.spring.users.UserDAO;
+import com.spring.users.UserDTO;
+import com.spring.users.UserService;
+import com.spring.users.UserServiceImpl;
+
 /**
  * Servlet implementation class DispatcherServlet
  */
@@ -66,15 +74,37 @@ public class DispatcherServlet extends HttpServlet {
 			System.out.println("폼에서 넘긴 변수 id 갑 출력 : " + id);
 			System.out.println("폼에서 넘긴 변수 id 갑 출력 : " + password);
 			
+			//2. 클라이언트에서 넘긴 변수값을 받아서 저장된 변수를 DTO에 Setter 주입 
+			UserDTO dto = new UserDTO(); 
+			dto.setId(id); 
+			dto.setPassword(password); 
+			
+			//3. 비즈니스 로직을 처리하는 인테페이스에 dto를 주입 해서 비즈니스 로직을 처리
+			
+			//UserService user = new UserServiceImpl(); 
+			UserDAO user = new UserDAO(); 
+			
+			UserDTO userD = user.getUser(dto); 
+			
+			//DB의 클라이언트에서 넘긴 ID 와 Password 를 select 해서 그겂을 DTO에 담아서 리턴 
+			System.out.println(userD);
 			
 			
-			
-			
-			
+			//4. 백엔드의 로직을 모두 처리후 View 페이지로 이동 
+			if (userD.getId() != null) {  //클라이언트에게 전송한 ID 와 Pass가 DB의 값과 일치 할때
+				response.sendRedirect("getBoardList.jsp"); 
+				System.out.println("아이디와 패스워드 일치");
+			}else {  //Client에게 전송한 ID와 Pass중 일치하지 않을 때  
+				response.sendRedirect("login.jsp"); 
+				System.out.println("아이디와 패스워드 불일치 ");
+			}
+					
 			
 		}else if (path.equals("/getBoardList.do")) {
 			
 			System.out.println("게시판 정보 출력 ");
+			
+			
 			
 		}else if (path.equals("/logout.do")) {
 			

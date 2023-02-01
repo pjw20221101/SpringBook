@@ -41,8 +41,7 @@
  	<servlet-name>cart</servlet-name>
  	<url-pattern>*.ca</url-pattern>
  </servlet-mapping>
- 
- 
+
 
 
 </web-app>

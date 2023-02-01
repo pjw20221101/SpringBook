@@ -23,7 +23,7 @@ public class UserDAO  {
 
 	public UserDTO getUser(UserDTO dto) {
 		//객체 선언 : DB에서 select 한 레코드를 user 에 담아서 리턴 
-		UserDTO user = new UserDTO(); 
+		UserDTO user = null; 
 		
 	//	System.out.println("DAO - " + dto.getId());
 	//	System.out.println("DAO - " + dto.getPassword() );
@@ -41,7 +41,12 @@ public class UserDAO  {
 			
 			//rs의 담긴 값을 가져와서 DTO (user) 에 저장후 리턴 돌려줌 
 			
+			
+			//DB의 ID와 Pass가 모두 일치 할 경우 if 문이 작동됨 
 			if (rs.next()){		//레코드의 값이 존재할때 커서를 해당 레코드로 이동 
+				
+				user = new UserDTO(); 
+				
 				
 				System.out.println("DB에서 값이 잘 select 되었습니다.  " );
 				

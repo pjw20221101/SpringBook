@@ -123,7 +123,11 @@ public class DispatcherServlet extends HttpServlet {
 			
 			//3. 클라이언트에게 boardList를 전달해야 한다. 
 			//(세션 객체에 boardList 객체를 담아서 전송 시킴
+			// 세션은 서버의 RAM에 저장됨. 
+			// 쿠키 : 클라이언트 시스템의 HDD 에 정보를 저장함. 
 			HttpSession session = request.getSession(); 
+			//session 객체에 값을 저장 , setAttribute("변수명", 객체 );
+			//session 객체에 값을 가지고올때, getAttribute("변수명");                       
 			session.setAttribute("boardList", boardList); 
 			
 			

@@ -74,6 +74,7 @@ public class BoardDAO {
 		try {
 			//객체 생성
 			conn = JDBCUtil.getConnection(); 
+			// BOARD_UPDATE = "update board set title=?, content=? where seq=?";
 			pstmt = conn.prepareStatement(BOARD_UPDATE); 
 			
 			//pstmt 의 ? 에 dto에서 넘어오는 변수값 할당. 

@@ -56,11 +56,15 @@
 			
 			
 			<tr>
-				<td> <%= dto.getSeq() %> </td>
-				<td> <%= dto.getTitle() %> </td>
-				<td> <%= dto.getWriter() %> </td>
-				<td> <%= dto.getRegDate() %></td>
-				<td> <%= dto.getCnt() %></td>
+				<td align = "center"> <%= dto.getSeq() %> </td>
+				<td> 
+					<a href ="getBoard.do?seq=<%= dto.getSeq()%>">
+					<%= dto.getTitle() %> 
+					</a>
+				</td>
+				<td align = "center"> <%= dto.getWriter() %> </td>
+				<td align = "center"> <%= dto.getRegDate() %></td>
+				<td align = "center"> <%= dto.getCnt() %></td>
 			 </tr>
 			 
 			 <%
@@ -73,15 +77,7 @@
 		
 		
 	</form>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 </center>
 
 </body>

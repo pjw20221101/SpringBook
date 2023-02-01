@@ -135,6 +135,54 @@ public class DispatcherServlet extends HttpServlet {
 			response.sendRedirect("getBoardList.jsp"); 
 			
 			
+		}else if (path.equals("/insertBoard.do")) {
+			
+			System.out.println("board 테이블의 값을 저장");
+			//1. 클라이언트에서 넘어오는 변수 값을 받아서 새로운 변수에 저장 
+			String title = request.getParameter("title"); 
+			String writer = request.getParameter("writer"); 
+			String content = request.getParameter("content"); 
+			
+			//2.  비즈니스 로직 처리  (클라이언트의 변수를 dto 에 저장후 dao의 insertBoard(dto) 
+			BoardDTO dto = new BoardDTO(); 
+			BoardDAO dao = new BoardDAO(); 
+			
+				//dto 의 setter 메소드 호출시 클라이언트에게 넘어노는 변수를 할당. 
+			dto.setTitle(title); 
+			dto.setWriter(writer); 
+			dto.setContent(content); 
+			
+			dao.insertBoard(dto); 	//DB 에 Insert/ Update /delete  가 완료됨 
+			
+			//3. view 페이지를 전송 
+			response.sendRedirect("getBoardList.do");  
+			
+			
+		}else if (path.equals("/getBoard.do")) {
+			
+			System.out.println("게시판 상세 내용보기 - /getBoard.do 요청함");	
+			
+			//1. 클라이언트의 넘긴 변수 값 받기 ("seq") 
+			String seq = request.getParameter("seq");    //getParameter 로 넘어오는 값은 모두 String
+			System.out.println("seq 변수값 : " + seq);
+			
+			//2. 비즈니스 로직 처리 : 파라미터로 받은 값을 DTO에 저장후 getBoard(dto) 메소드 호출 
+			BoardDTO dto = new BoardDTO(); 
+			BoardDAO dao = new BoardDAO(); 
+			
+			//클라이언트에게 받은 값을 dto에 setter 주입 
+			dto.setSeq(Integer.parseInt(seq)); 
+			
+			//리턴을 받아온다. 
+			BoardDTO board = dao.getBoard(dto); 
+			
+			//DB의 값이 저장된 DTO (board) 를 session 변수에 할당해서 뷰 페이지로 전달
+			HttpSession session = request.getSession(); 
+			
+			session.setAttribute("board", board); 
+			
+			//3. 뷰 페이지로 전달 
+			response.sendRedirect("getBoard.jsp"); 
 			
 			
 		}else if (path.equals("/logout.do")) {

@@ -183,6 +183,50 @@ public class DispatcherServlet extends HttpServlet {
 			
 			//3. 뷰 페이지로 전달 
 			response.sendRedirect("getBoard.jsp"); 
+		
+		}else if (path.equals("/updateBoard.do")) {
+			System.out.println("글 수정 처리 ");
+			
+			//1. 클라이언트에서 넘어오는 변수를 받음. 
+			String title = request.getParameter("title"); 
+			String content = request.getParameter("content"); 
+			String seq = request.getParameter("seq"); 
+			/*
+			System.out.println(seq);
+			System.out.println(title);
+			System.out.println(content);
+			*/ 
+			
+			//2. DTO, DAO 객체를 사용해서 비즈니스 로직 처리 
+			BoardDTO dto = new BoardDTO(); 
+			BoardDAO dao = new BoardDAO(); 
+			
+			dto.setSeq(Integer.parseInt(seq)); 
+			dto.setTitle(title); 
+			dto.setContent(content); 
+			
+			dao.updateBoard(dto); 
+			
+			//3. 백엔드의 로직을 모두 처리후 client 에게 View 페이지로 이동
+			response.sendRedirect("getBoardList.do"); 
+			
+	
+		}else if (path.equals("/deleteBoard.do")) {		
+			System.out.println("글 삭제 처리 ");
+			
+			//1. 클라이언트에서 넘긴 seq 를 받아서 변수에 저장함. 
+			String seq = request.getParameter("seq"); 
+			
+			//2. DTO, DAO에 로직 처리 (백엔드의 비즈니스 로직 처리) 
+			BoardDTO dto = new BoardDTO(); 
+			BoardDAO dao = new BoardDAO(); 
+			
+			dto.setSeq(Integer.parseInt(seq)); 
+			
+			dao.deleteBoard(dto); 
+			
+			//3. 비즈니스 로직 처리 완료후 View 페이지로 이동 
+			response.sendRedirect("getBoardList.do"); 		
 			
 			
 		}else if (path.equals("/logout.do")) {
